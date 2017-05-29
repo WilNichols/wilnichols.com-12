@@ -1,0 +1,9 @@
+@import "bourbon/bourbon";
+
+$rem: 24px;
+
+@mixin share($props.../*, $value */) {
+    @for $i from 1 to length($props) {
+        #{nth($props, $i)}: nth($props, -1);
+    }
+}
