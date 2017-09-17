@@ -24,6 +24,8 @@ html {
 
 body { 
     font-family: "DIN 2014", "din-2014", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif; 
+    color: #000;
+    background-color: #fff;
     &.debug {
         background-image: url(//basehold.it/i/24/000000);
         .block {
@@ -35,30 +37,23 @@ body {
 // typo
 
 h1 {
-//    font-weight: 300;
     text-align: left;
     vertical-align: middle;
-//    font-size: 3rem;
     display: inline-block;
-    color: #000;
-//    margin: -.375rem 0 0 0;
     white-space: nowrap;
-/*    @media screen and (max-width: 20rem) {  */  
-        font-size: 2.25rem;
-        font-weight: 400;
-        margin: 0;
-/*    } */
+    font-size: 2.25rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 600;
 }
 
 p {
     line-height: 1rem;
     font-size: .75rem;
     font-weight: 400;
-    color: #fff;
-//    margin: 1.625rem 0 0 0;
-/*    @media screen and (max-width: 20rem) { */
-        margin: 1.875rem auto 0 auto;
-/*    } */
 }
 
 a {
@@ -67,6 +62,9 @@ a {
     font-weight: 600;
     &.current, &:hover {
         text-decoration: underline;
+    }
+    &.zello-link {
+        color: #fd9c00;
     }
 }
 
@@ -84,29 +82,113 @@ img {
 .wrapper {
     margin: 0 auto;
     position: relative;
-    height: 100vh;
     width: 100%;
     position: relative;
-    padding: 0 2.75rem;
+    padding: 0 2rem;
+}
+.grid-wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    // makes up for grid item margin
+    .container {
+        max-width: 64rem;
+    }
 }
 
 .container {
-    width: 100%;
-    height: 50vh;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #0b0b0b;
+    max-width: 60rem;
+    margin: 0 auto;
 }
 
-.center {
-    max-width: 36rem;
-    padding: 0 2rem;
+
+.nav {
+    display: block;
+    height: 4rem;
     width: 100%;
-//    margin: -3rem auto 0 auto;
-    margin: -2.875rem auto 0 auto;
-    @media screen and (max-width: 20rem) { 
-        padding: 0 1rem;
-    } 
+    font-size: 0;
+    ul {
+        width: 100%;
+        text-align: right;
+        font-size: 0;
+        height: 4rem;
+        li {
+            display: inline;
+            margin: 0 0 0 1rem;
+            font-size: 0;
+            height: 6rem;
+            line-height: 6rem;
+            &.float-left {
+                float: left;
+                margin: 0;
+            }
+            a {
+                font-size: .75rem;
+                color: #000;
+                font-weight: 300;
+            }
+            span.name {
+                font-size: .75rem;
+                text-align: left;
+                line-height: 1rem;
+                height: 2rem;
+                display: block;
+                margin: 2rem 0 0 0;
+            }
+            &.active a {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+footer {
+    font-size: .75rem;
+    margin: 0 0 1rem 0;
+}
+
+p {
+    padding: 0;
+    font-weight: 600;
+    color: #000;
+}
+
+// touchscreens
+
+html.touchevents {
+}
+
+// responsive
+
+@media only screen and (max-width: 750px) {
+    .header {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        -webkit-backdrop-filter: blur(.5rem);
+        top: calc(-2rem - 2.5vw);
+        .wrapper {
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+                border-bottom: .5px solid rgba(0,0,0,0.125);
+            }
+        }
+    }
+    .about-me {
+        margin: 2.5rem 0;
+    }
+    .wrapper {
+        padding: 0 2.5vw;
+    }
+    .grid-wrapper .container {
+        max-width: calc(60rem + 2.5vw);
+    }
+    footer {
+        font-size: 3.75vw;
+        text-align: center;
+        margin: 2.5vw 0 3.75vw 0;
+    }
 }

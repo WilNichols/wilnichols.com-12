@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script asyc src="https://use.typekit.net/qss5yuu.js"></script>
-        <script>try{Typekit.load({ async: true });}catch(e){}</script> 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta property="og:title" content="Bio of Designer Wil Nichols" />
-        <meta property="og:site_name" content="Bio of Designer Wil Nichols" />
-        <meta property="og:type" content="website" />
-        <meta property="og:author" content="Wil Nichols" />
-        <meta property="og:url" content="http://www.wilnichols.com" />
-        <meta property="og:locale" content="en_US" />
-        <title>{% block title %}{% endblock title%}</title>
-        <meta name="description" content="Bio of Designer Wil Nichols">
-        <link rel="stylesheet" href="{% static '/static/css/reset.css' %}" />
-        <link rel="stylesheet" href="{% static '/static/css/master.css' %}" />
+        {% include "partials/head.html" %}
+        <script>
+            $(document).ready(function() {
+                $('.work-grid a').tilt({
+                    scale: 1,
+                    glare: true,
+                    maxGlare: .25,
+                    perspective: 2000,
+                    maxTilt: 5,
+                    speed: 1000
+                });
+            });
+        </script>
         {% block css %}
         {% endblock css %} 
     </head>
     <body>
+        {% include "partials/header.html" %}
         {% block content %}
         {% endblock content %}
-
+        {% include "partials/footer.html" %}
     </body>
 </html>

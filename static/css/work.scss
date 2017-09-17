@@ -1,0 +1,353 @@
+@import "bourbon/bourbon";
+@import "_common";
+
+a {
+    &.zello-link {
+        color: #fd9c00;
+    }
+}
+
+.nav {
+    ul {
+        li {
+            a {
+                color: #000;
+            }
+        }
+    }
+}
+
+p {
+    color: #000;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    max-width: 42rem;
+    width: 100%;
+    margin: 5rem 0;
+    @media only screen and (max-width: 750px) {
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+}
+
+.work-grid {
+    display: block;
+    text-align: right;
+    font-size: 0;
+    width: 100%;
+    margin: 0;
+    width: calc(100% - 2rem);
+    & > a {
+        display: inline-block;
+        margin: 0 0 2rem 2rem;
+        @include transform-style(preserve-3d);
+        overflow: hidden;
+        background-color: rgba(0,0,0,0.125);
+        position: relative;
+        text-align: left;
+        overflow: visible;
+        box-sizing: content-box;
+        will-change: transform, opacity;
+        span {
+            font-size: 1.5rem;
+            margin: 1rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+            @include transform(translateZ(1rem));
+            position: absolute;
+            @include share(top, left, 0);
+            z-index: 100;
+            @include transition(opacity 0.2s ease-out);
+            @include transform-origin(50%);
+            opacity: 0;
+        }
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            @include share(top, right, bottom, left, 0);
+            overflow: visible;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            @include share(top, right, bottom, left, 0);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,0.125);
+            z-index: -1;
+            opacity: 0;
+            @include transition(opacity 1s ease-out);
+        }
+        &:hover {
+            span {
+                opacity: 1;
+                @include transform(translateZ(1rem));
+                @include transition(opacity 0.2s ease-out);
+            }
+            &::after {
+                opacity: 1;
+                @include transition(opacity 1s ease-out);
+            }
+        }
+    }
+    .tile__1x2 {
+        padding-bottom: calc(100% - 2rem);
+        width: calc(50% - 2rem);
+        @media only screen and (max-width: 750px) {
+            padding-bottom: calc(100% - 2.5vw);
+            width: calc(50% - 2.5vw);
+        }  
+    }
+    .tile__1x1 {
+        padding-bottom: calc(50% - 2rem);
+        width: calc(50% - 2rem);
+        @media only screen and (max-width: 750px) {
+            padding-bottom: calc(50% - 2.5vw);
+            width: calc(50% - 2.5vw);
+        }
+    }
+    .tile__2x1 {
+        padding-bottom: calc(50% - 2rem);
+        width: calc(100% - 2rem);
+        @media only screen and (max-width: 750px) {
+            padding-bottom: calc(50% - 2.5vw);
+            width: calc(100% - 2.5vw);
+        }
+    }
+    .Zello_iOS {
+        float: left;
+        &::before { 
+            background-color: #1d2126;
+            background-image: url('../img/Frame__Zello-iOS@2x.png');
+            background-position: right center;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #1d2126;
+        }
+    }
+    .TasteBud {
+        &::before { 
+            background-color: #ffaf40;
+            background-image: url('../img/Frame__TasteBud@2x.png');
+            background-position: center;
+        }
+        span {
+            top: auto;
+            @include share(bottom, left, 0);
+            text-shadow: 0 .125rem .5rem #ffaf40;
+        }
+    }
+    .Invite {
+        &::before {
+            background-color: #14c070;
+            background-image: url('../img/Frame__Invite@2x.png');
+            background-position: center;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #14c070;
+        }
+    }
+    .ZelloWork_Console {
+        &::before {
+            background-color: #3e4e62;
+            background-image: url('../img/Frame__ZelloWork_Console@2x.png');
+            background-position: center bottom;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #3e4e62;
+        }
+    }
+    .Analog_MacOS {
+        &::before {
+            background-color: #252525;
+            background-image: url('../img/Frame__Analog-MacOS@2x.png');
+            background-position: center;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #252525;
+        }
+    }
+    .Remote_Control_iOS {
+        &::before { 
+            background-color: #33c6f4;
+            background-image: url('../img/Frame__Remote_Control@2x.png');
+            background-position: center;
+        }
+        span {
+            top: auto;
+            left: auto;
+            @include share(bottom, right, 0);
+            text-shadow: 0 .125rem .5rem #33c6f4;
+        }
+    }
+    .Keycard_iOS {
+        &::before {
+            background-color: #4e5f72;
+            background-image: url('../img/Frame__Keycard-iOS@2x.png');
+            background-position: center;
+        }
+        span {
+            left: auto;
+            right: 0;
+            text-shadow: 0 .125rem .5rem #4e5f72;
+        }
+    }
+    .Analog_iOS {
+        float: right;
+        &::before {
+            background-color: #c5d1da;
+            background-image: url('../img/Frame__Analog-iOS@2x.png');
+            background-position: left center;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #c5d1da;
+        }
+    }
+    .AFN_iOS {
+        &::before {
+            background-color: #3e96c7;
+            background-image: url('../img/Frame__Austin_Free_Net@2x.png');
+            background-position: left center;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #3e96c7;
+        }
+    }
+    .Keycard_MacOS {
+        &::before {
+            background-color: #9b8e93;
+            background-image: url('../img/Frame__Keycard-MacOS@2x.png');
+            background-position: center;
+        }
+        span {
+            text-shadow: 0 .125rem .5rem #9b8e93;
+        }
+    }
+    .Arex_iOS {
+        &::before {
+            background-color: #e0c18f;
+            background-image: url('../img/Frame__Arex@2x.png');
+            background-position: center;
+        }
+        span {
+            left: auto;
+            right: 0;
+            text-shadow: 0 .125rem .5rem #e0c18f;
+        }
+    }
+    .FiveSquare_iOS {
+        &::before {
+            background-color: #31cc80;
+            background-image: url('../img/Frame__FiveSquare@2x.png');
+            background-position: center;
+        }
+        span {
+            left: auto;
+            text-shadow: 0 .125rem .5rem #31cc80;
+        }
+    }
+    .Diligence_MacOS {
+        &::before {
+            background-color: #edd8dd;
+            background-image: url('../img/Frame__Diligence@2x.png');
+            background-position: center;
+        }
+        span {
+            left: auto;
+            right: 0;
+            text-shadow: 0 .125rem .5rem #edd8dd;
+        }
+    }
+    .Illustrations {
+        &::before {
+            background-color: #7ec8fc;
+            background-image: url('../img/Frame__Illustrations@2x.png');
+            background-position: center;
+        }
+        span {
+            left: auto;
+            text-shadow: 0 .125rem .5rem #7ec8fc;
+        }
+        i {
+            display: block;
+            position: absolute;
+            @include share(top, right, bottom, left, 0);
+            background-size: 23.5rem;
+            background-repeat: no-repeat;
+            background-position: -50% center;
+            &.shadow-sm {
+                background-image: url('../img/Frame__illustrations-smallhadow@2x.png');
+                @include transform(translateZ(0rem));
+                opacity: 0.5;
+            }
+            &.shadow-lg {
+                background-image: url('../img/Frame__illustrations-bigshadow@2x.png');
+                @include transform(translateZ(0) scale(.995));
+                opacity: 0.75;
+            }
+            &.rope {
+                background-image: url('../img/Frame__illustrations-rope@2x.png');
+                @include transform(translateZ(.5rem) scale(.995));
+            }
+            &.tube {
+                background-image: url('../img/Frame__illustrations-tube@2x.png');
+                @include transform(translateZ(1rem) scale(.9855));
+            }
+            &.mark {
+                background-image: url('../img/Frame__illustrations-mark@2x.png');
+                @include transform(translateZ(1.5rem) scale(.99));
+            }
+        }
+    }
+}
+// touchscreens
+html.touchevents {
+    .work-grid a span {
+        opacity: 1;
+    }
+}
+
+// responsive
+@media only screen and (max-width: 750px) {
+    .header {
+        background-color: rgba(255, 255, 255, 0.75);
+        .wrapper {
+            border-bottom: 1px solid rgba(0,0,0,0.125);
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+                border-bottom: .5px solid rgba(0,0,0,0.125);
+            }
+        }
+    }
+    .work-grid {
+        width: calc(100% - 2.5vw);
+        & > a {
+             margin: 0 0 2.5vw 2.5vw;
+             span {
+                font-size: 5vw;
+                margin: 2.5vw;
+                @include transform(translateZ(0));
+            }
+            &:hover {
+                span {
+                    @include transform(translateZ(0));
+                }
+            }
+        }
+        .tile__1x2 {
+            padding-bottom: calc(100% - 2.5vw);
+            width: calc(50% - 2.5vw);
+        }  
+        .tile__1x1 {
+            padding-bottom: calc(50% - 2.5vw);
+            width: calc(50% - 2.5vw);
+        }
+        .tile__2x1 {
+            padding-bottom: calc(50% - 2.5vw);
+            width: calc(100% - 2.5vw);
+        }
+    }
+}

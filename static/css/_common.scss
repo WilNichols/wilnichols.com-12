@@ -7,3 +7,28 @@ $rem: 24px;
         #{nth($props, $i)}: nth($props, -1);
     }
 }
+
+$m__viewport-max: 77rem;
+$m__viewport-med: 47rem;
+$m__viewport-sm: 31rem;
+
+$m__viewport-nav: 522px;
+
+$m__viewport-i6plus-dim: 414px 736px;
+$m__viewport-i6-dim: 375px 667px;
+$m__viewport-i5-dim: 320px 568px;
+$m__viewport-i4-dim: 320px 480px;
+
+$m__viewport-ipadmini-half1: 320px 1024px;
+$m__viewport-ipadmini-half2: 438px 1024px;
+$m__viewport-ipadmini-half3: 320px 768px;
+$m__viewport-ipadmini-half4: 694px 768px;
+$m__viewport-ipadmini-half5: 507px 768px;
+
+
+$WN-breakpoint-medium: 48rem !default;
+$WN-breakpoint-small: 320px !default;
+
+$DE-gutter-width: 16px !default;
+$DE-breakpoint-medium: 750px !default;
+$DE-breakpoint-small: 320px !default;

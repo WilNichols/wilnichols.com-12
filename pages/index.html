@@ -3,16 +3,47 @@
 
 {% block pagename %}index{% endblock pagename%}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/work.css' %}" />
+{% endblock css %}
+
 {% block content %}		
-<main class="wrapper">
-    <div class="container block">
-        <div class="center">
-            <h1>Wil Nichols</h1>
-            <p lang="en" class="bio">I'm a multidisciplinary designer and photographer creating the world's best business and consumer push-to-talk solution at <a target="_blank" href="//www.zellowork.com">Zello</a>. I've been polishing pixels since 2008, and when not designing interfaces, you'll find me exploring the streets of Austin, TX.</p>
+<div class="content-body">
+    <div class="wrapper">
+        <div class="container">
+                <p class="about-me">I'm a product designer based in Austin, Texas. Currently, I'm working with the team at <a class="zello-link" target="_blank" href="//www.zellowork.com">Zello</a> to create the world's best business and consumer push-to-talk solution. Take a look at my previous work.</p>
         </div>
     </div>
-</main>
+    <div class="grid-wrapper">
+        <div class="container">
+            <div class="work-grid">
+                <a class="Zello_iOS tile__1x2 sm--tile__1x1" href=""  data-tilt><span>Zello for iPhone</span></a>
+                <a class="TasteBud tile__1x1" href="" data-tilt><span>TasteBud</span></a>
+                <a class="Invite tile__1x1" href="" data-tilt><span>Invite</span></a>
+            </div>
+            <div class="work-grid">
+                <a class="ZelloWork_Console tile__2x1 sm--tile__1x1" href="" data-tilt><span>ZelloWork Console</span></a>
+                <a class="Keycard_iOS tile__1x1" href=""data-tilt><span>Keycard for iOS</span></a>
+                <a class="Keycard_MacOS tile__1x1" href="" data-tilt><span>Keycard for MacOS</span></a>
+            </div>
+            <div class="work-grid">
+                <a class="Analog_iOS tile__1x2 sm--tile__1x1" href="" data-tilt><span>Analog for iOS</span></a>
+                <a class="Remote_Control_iOS tile__1x1" href="" data-tilt><span>Remote Control</span></a>
+                <a class="AFN_iOS tile__1x1" href"" data-tilt><span>Austin Free-Net</span></a>
+            </div>
+            <div class="work-grid">
+                <a class="Analog_MacOS tile__2x1 sm--tile__1x1" href="" data-tilt><span>Analog for MacOS</span></a>
+                <a class="Arex_iOS tile__1x1" href="" data-tilt /><span>Arex</span></a>
+                <a class="FiveSquare_iOS tile__1x1" href="" data-tilt /><span>FiveSquare</span></a>
+                <a class="Diligence_MacOS tile__1x1" href="" data-tilt /><span>Diligence</span></a>
+                <a class="Illustrations tile__1x1" href="" data-tilt /><span>Illustrations</span><!--<i class="mark"></i><i class="tube"></i><i class="rope"></i><i class="shadow-lg"></i><i class="shadow-sm"></i>--></a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 {% block scripts %}
 {% endblock scripts %}
+
+            

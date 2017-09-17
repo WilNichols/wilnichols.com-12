@@ -1,0 +1,203 @@
+@import "bourbon/bourbon";
+@import "_common";
+
+body { 
+    color: #fff;
+    background-color: #000;
+}
+
+a {
+    color: rgb(0, 122, 255);
+}
+
+.nav {
+    ul {
+        li {
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+
+p {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    max-width: 27rem;
+    width: 100%;
+    margin: 0 0 1rem 0;
+    &:first-child {
+        margin: 5rem 0 1rem 0;
+    }
+    &:last-child {
+        margin: 1rem 0 5rem 0;
+    }
+}
+
+.photography-grid {
+    font-size: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: .125rem;
+    .photocontainer {
+        white-space: nowrap;
+        font-size: 0;
+        overflow: hidden;
+        position: relative;
+        padding-top: 66.6666666666%;
+        &.portrait {
+            padding-top: calc(133.33333333333% + .125rem);
+            a img {
+                margin-top: -8.3333333333%;
+            }
+        }
+        &.portrait-full {
+            padding-top: 150%;
+        }
+        a {
+            display: block;
+            @include share(width, height, 100%);
+            position: absolute;
+            @include share(top, right, bottom, left, 0);
+            color: #fff;
+            .titlecontainer {
+                position: absolute; 
+                display: inline-block;
+                @include share(top, right, bottom, left, 0);
+                @include share(width, height, 100%);
+                opacity: 0;
+                @include transition(ease-out 0.2s opacity);
+                font-size: 1rem;
+                @include share(height, width, 100%);
+                vertical-align: middle;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.75);
+                top: 0;
+                .title {
+                    @include share(height, line-height, font-size, 1rem);
+                    position: relative;
+                    display: inline-block;
+                    top: 50%;
+                    @include transform(translateY(-1rem));
+                    width: 100%;
+//                    text-transform: lowercase;
+                    font-weight: 600;
+//                    font-variant: small-caps;
+                }
+            }
+            img {
+                width: 100%;
+                display: block;
+            }
+            &:hover {
+                .titlecontainer {
+                    opacity: 1;
+                    @include transition(ease-out 0.2s opacity);
+                }
+            }
+        }
+    }
+    .Annecy {
+        grid-column: 1 / 13;
+        grid-row: 1 / 2;
+    }
+    .Amsterdam {
+        grid-column: 1 / 7;
+        grid-row: 2 / 4;
+    }
+    .WomensFirst {
+        grid-column: 7 / 13;
+        grid-row: 2 / 3;
+    }
+    .WomensSecond {
+        grid-column: 7 / 13;
+        grid-row: 3 / 4;
+    }
+    .Julios {
+        grid-column: 1 / 5;
+        grid-row: 4 / 5;
+    }
+    .AndrewandKira {
+        grid-column: 5 / 9;
+        grid-row: 4 / 5;
+    }
+    .AustenNeon {
+        grid-column: 9 / 13;
+        grid-row: 4 / 6;
+    }
+    .Iceland {
+        grid-column: 1 / 5;
+        grid-row: 5 / 7;
+    }
+    .People {
+        grid-column: 5 / 9;
+        grid-row: 5 / 6;
+    }
+    .Causeway {
+        grid-column: 5 / 13;
+        grid-row: 6 / 8;
+    }
+    .Harpa {
+        grid-column: 1 / 5;
+        grid-row: 7 / 8;
+    }
+    .KitchenSink {
+        grid-column: 7 / 10;
+        grid-row: 8 / 10;
+        .photocontainer a img {
+            margin-top: -16%;
+        }
+    }
+    .Seaholm {
+        grid-column: 10 / 13;
+        grid-row: 8 / 10;
+    }
+    .MtBonnel {
+        grid-column: 1 / 7;
+        grid-row: 8 / 10;
+    }
+    .Paris {
+        grid-column: 1 / 5;
+        grid-row: 10 / 12;
+    }
+    .SanFermin {
+        grid-column: 5 / 9;
+        grid-row: 10 / 12;
+        .photocontainer a img {
+            margin-top: 0;
+        }
+    }
+    .UptownCondos {
+        grid-column: 9 / 13;
+        grid-row: 10 / 12;
+    }
+    .BalloonPerson {
+        grid-column: 1 / 7;
+        grid-row: 12 / 13;
+    }
+    .FormalatVulcan {
+        grid-column: 7 / 13;
+        grid-row: 12 / 13;
+        
+    }
+}
+
+// touchscreens
+html.touchevents {
+    .photography-grid .photocontainer a .titlecontainer {
+        opacity: 1;
+        height: auto;
+        padding: .5rem 0 .5rem .75rem;
+        top: initial;
+        text-align: left;
+        background-color: transparent;
+        .title {
+            top: initial;
+            width: auto;
+            @include transform(none);
+            font-size: .75rem;
+            text-shadow: 0 .03125rem .0625rem rgba(0,0,0,0.5), 0 .0625rem .125rem rgba(0,0,0,0.25), 0 .25rem .5rem rgba(0,0,0,0.125);
+        }
+    }
+}
