@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% block title %}Wil Nichols, Designer{% endblock title%}
+{% extends "photo-index.html" %}
+{% block title %}Wil Nichols : Photography : Sets{% endblock title%}
 
 {% block pagename %}photography{% endblock pagename%}
 
@@ -8,19 +8,6 @@
 {% endblock css %}
 
 {% block content %}		
-<div class="content-body">
-    <div class="wrapper">
-        <div class="container">
-                <p>I love to travel — locally and abroad — and my camera follows me everywhere. I focus in street and travel photography, but truly enjoy whatever captures my eye.</p>
-                <p>If you live near Austin, I take portraits. <a href="hello.html">Contact me</a>.</p>
-        </div>
-        <div class="container">
-            <nav class="photography-nav">
-                <ul>
-                    <li class="{% if_current_page '/photography.html' 'active' 'inactive' %}"><a href="photography.html">Sets</a></li>
-                    <li class="{% if_current_page '/photojournal.html' 'active' 'inactive' %}"><a href="photojournal.html">Journal</a></li>
-                </ul>
-            </nav>
             <div class="photography-grid">
                 <div class="Annecy"><div class="photocontainer"><a href="/collections/annecy.html"><div class="titlecontainer"><span class="title">Annecy, Carnivale</span></div><img alt="Carnivale in Annecy" src="{% static '/static/img/Photography/Compressed/Sets/Carnivale_Annecy/DSCF0169.jpg' %}" /></a></div></div>
                 <div class="Amsterdam"><div class="photocontainer portrait"><a href="/collections/amsterdam.html"><div class="titlecontainer"><span class="title">Six Hours in Amsterdam</span></div><img alt="Amsterdam, Travel" src="{% static '/static/img/Photography/Compressed/Sets/AMS_Travel/DSCF1010.jpg' %}" /></a></div></div>
@@ -46,8 +33,6 @@
                 <div class="BalloonPerson"><div class="photocontainer"><a href="/collections/balloonperson.html"><div class="titlecontainer"><span class="title">The Balloon Person</span></div><img alt="The Balloon Person" src="{% static '/static/img/Photography/Compressed/Sets/The_Balloon_Person/DSCF6918.jpg' %}" /></a></div></div>
                 <div class="FormalatVulcan" style=""><div class="photocontainer"><a href="/collections/vulcanformal.html"><div class="titlecontainer"><span class="title">Vulcan Gas Company, December</span></div><img alt="Formal at Vulcan" src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3945.jpg' %}" /></a></div></div>
         </div>
-    </div>
-</div>
 {% endblock content %}
 
 {% block scripts %}

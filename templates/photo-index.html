@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock title%}</title>
+        {% include "partials/head.html" %}
+        {% block css %}
+        {% endblock css %} 
+    </head>
+    <body>
+        {% include "partials/header.html" %}
+        <div class="content-body">
+        <div class="wrapper">
+            <div class="container">
+                    <p>I love to travel — locally and abroad — and my camera follows me everywhere. I focus in street and travel photography, but truly enjoy whatever captures my eye.</p>
+                    <p>If you live near Austin, I take portraits. <a href="hello.html">Contact me</a>.</p>
+            </div>
+            <div class="container">
+                <nav class="photography-nav">
+                    <ul>
+                        <li class="{% if_current_page '/photography/sets.html' 'active' 'inactive' %}"><a href="/photography/sets.html">Sets</a></li>
+                        <li class="{% if_current_page '/photography/journal.html' 'active' 'inactive' %}"><a href="/photography/journal.html">Journal</a></li>
+                    </ul>
+                </nav>
+        {% block content %}
+        {% endblock content %}
+            </div>
+        </div>
+        {% include "partials/footer.html" %}
+    </body>
+</html>
