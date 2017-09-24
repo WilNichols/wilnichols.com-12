@@ -31,7 +31,46 @@ p {
         margin: 5rem 0 1rem 0;
     }
     &:last-child {
-        margin: 1rem 0 5rem 0;
+        //2rem bc height of navigation below
+        margin: 1rem 0 2rem 0;
+    }
+}
+
+.photography-nav {
+    display: block;
+    height: 2rem;
+    margin: 0 0 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    width: 100%;
+    font-size: 0;
+    ul {
+        width: 100%;
+        text-align: right;
+        font-size: 0;
+        height: 2rem;
+        li {
+            display: inline-block;
+            padding: 0 .5rem;
+            font-size: 0;
+            @include share(height, line-height, 2rem);
+            &:last-of-type {
+                padding: 0 0 0 .5rem;
+            }
+            a {
+                font-size: .75rem;
+                color: #fff;
+                font-weight: 300;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &.active, &:hover {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+            }
+            &.active a {
+                font-weight: 700;
+            }
+        }
     }
 }
 
