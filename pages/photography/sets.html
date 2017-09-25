@@ -1,8 +1,6 @@
 {% extends "photo-index.html" %}
 {% block title %}Wil Nichols : Photography : Sets{% endblock title%}
 
-{% block pagename %}photography{% endblock pagename%}
-
 {% block css %}
     <link rel="stylesheet" href="{% static '/static/css/photography.css' %}" />
 {% endblock css %}
@@ -36,25 +34,6 @@
 {% endblock content %}
 
 {% block scripts %}
-<script>
-    $(document).ready(function() {
-        var loader ="<i class='loader' />";
-        // prog. enhancement; only hide images before load IF js is enabled
-        $('.photocontainer a').append(loader);
-        $('.photocontainer a').addClass('preloader');
-        $('#imageloader').imagesLoaded().progress( function( instance, image ) {
-            var url = image.img.src;
-            filename = url.split("/").pop();
-            var img = $("img[src$='" + filename + "']");
-            $(img).parent().removeClass('preloader');
-            //remove loader 
-            $(img).next().remove();
-            $(img).addClass("fade-in");
-        }).done( function( instance ) {
-            console.log( 'all are done!');
-        });
-    });
-</script>
 {% endblock scripts %}
 
             
