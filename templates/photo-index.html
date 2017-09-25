@@ -3,6 +3,8 @@
     <head>
         <title>{% block title %}{% endblock title%}</title>
         {% include "partials/head.html" %}
+        {% block scripts %}
+        {% endblock scripts %}
         {% block css %}
         {% endblock css %} 
     </head>

@@ -1,6 +1,15 @@
 @import "bourbon/bourbon";
 @import "_common";
 
+@include keyframes(fade-in) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body { 
     color: #fff;
     background-color: #000;
@@ -10,6 +19,9 @@ a {
     color: rgb(0, 122, 255);
 }
 
+img {
+    border: none !important;
+}
 .nav {
     ul {
         li {
@@ -85,6 +97,17 @@ p {
         overflow: hidden;
         position: relative;
         padding-top: 66.6666666666%;
+        background-color: rgba(255,255,255,.0625);
+        i.loader {
+            display: block;
+            position: absolute;
+            @include share(top, left, 50%);
+            margin: -16px 0 0 -16px;
+            @include share(height, width, background-size, 32px);
+            background-repeat: no-repeat;
+            // thanks jxn
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='rgba(255,255,255,0.5)'><path opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/><path d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'><animateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /></path></svg>");
+        }
         &.portrait {
             padding-top: calc(133.33333333333% + .125rem);
             a img {
@@ -100,6 +123,9 @@ p {
             position: absolute;
             @include share(top, right, bottom, left, 0);
             color: #fff;
+            &.preloader *:not(.loader), &.preloader *:not(.loader):hover {
+                opacity: 0;
+            }
             .titlecontainer {
                 position: absolute; 
                 display: inline-block;
@@ -128,6 +154,9 @@ p {
             img {
                 width: 100%;
                 display: block;
+                &.fade-in {
+                    @include animation(fade-in 0.2s ease-out);
+                }
             }
             &:hover {
                 .titlecontainer {
