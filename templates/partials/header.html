@@ -3,8 +3,8 @@
         <div class="container">
             <nav class="nav">
                 <ul class="primary-nav">
-                    <li class="float-left"><span class="name"><h2>Wil Nichols</h2><h3>Designer & Photographer</h3></span></li>
-                    <li class="{% if_current_page '/index.html' 'active' '' %}" ><a href="index.html">Work</a></li>
+                    <li class="float-left"><a href="/index.html">{% include "svg/logo.svg" %}<span class="name"><h2>Wil Nichols</h2><h3>Designer & Photographer</h3></span></a></li>
+                    <li class="{% if_current_page '/index.html' 'active' '' %}" ><a href="/index.html">Work</a></li>
                     <li class="{% if_current_page '/photography/sets.html' 'active' '' %}{% if_current_page '/photography/journal.html' 'active' '' %}"><a href="/photography/sets.html">Photography</a></li>
                     <li class="{% if_current_page '/hello.html' 'active' '' %}"><a href="hello.html">Say Hello!</a></li>
                 </ul>

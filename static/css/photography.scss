@@ -27,6 +27,15 @@ img {
         li {
             a {
                 color: #fff;
+                .logo {
+                    .outer, .inner {
+                        fill: #fff;
+                    }
+                    .glyph {
+                        fill: #000;
+                    }
+                }
+
             }
         }
     }
@@ -35,7 +44,6 @@ img {
 p {
     color: #fff;
     font-size: 1rem;
-    line-height: 1.25rem;
     max-width: 27rem;
     width: 100%;
     margin: 0 0 1rem 0;

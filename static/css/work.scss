@@ -12,6 +12,14 @@ a {
         li {
             a {
                 color: #000;
+                .logo {
+                    .outer, .inner {
+                        fill: #000;
+                    }
+                    .glyph {
+                        fill: #fff;
+                    }
+                }
             }
         }
     }
@@ -20,7 +28,6 @@ a {
 p {
     color: #000;
     font-size: 2rem;
-    line-height: 2.5rem;
     max-width: 42rem;
     width: 100%;
     margin: 5rem 0;
