@@ -55,7 +55,65 @@ p {
         margin: 1rem 0 2rem 0;
     }
 }
-
+.fullscreen-exit {
+    display: none;
+    rect {
+        fill: transparent !important; 
+    }
+}
+body.fullscreen {
+    .fullscreen-exit {
+        cursor: pointer;
+        display: block;
+        position: fixed;
+        z-index: 100;
+        @include share(top, right, 1rem);
+        @include share(width, height, 2rem);
+        border-radius: 50%;
+        background-color: rgba(28, 28, 28, .73);
+        @include filter(saturate(2));
+        -webkit-backdrop-filter: blur(.5rem);
+    }
+    body > * {
+        display: none;
+    }
+    .header, .photography-nav, .footer {
+        display: none;
+    }
+    .photoalbum {
+        height: 100vh;
+        width: 100vw;
+        max-width: intrinsic;
+        display: grid;
+        padding-bottom: 0;
+        align-items: center;
+        position: absolute;
+        @include share(top, right, bottom, left, 0);
+        justify-content: center;
+        background-color: #000;
+    }
+    .photoalbum li {
+        display: none;
+        &.front {
+            display: block;
+            background-color: #000;
+            max-width: intrinsic;
+            width: 100vw;
+            text-align: center;
+            a {
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                width: 100vw;
+                height: 100vh;
+            }
+            img {
+                display: inline-block;
+            }
+        } 
+    }
+    
+}
 .photography-nav {
     display: block;
     height: 2rem;
@@ -76,19 +134,13 @@ p {
             &:last-of-type {
                 padding: 0 0 0 .5rem;
             }
-            a {
+            a, p {
                 font-size: .75rem;
                 color: #fff;
                 font-weight: 300;
                 &:hover {
                     text-decoration: none;
                 }
-            }
-            &.active, &:hover {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.75);
-            }
-            &.active a {
-                font-weight: 700;
             }
         }
     }

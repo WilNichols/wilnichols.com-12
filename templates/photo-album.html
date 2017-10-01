@@ -4,9 +4,6 @@
         <title>{% block title %}{% endblock title%}</title>
         {% include "partials/head.html" %}
         <script>
-                
-
-                    
             $(document).ready(function() {
                 function launchIntoFullscreen(element) {
                     $('body').addClass('fullscreen');
@@ -21,7 +18,6 @@
                     }
                 }
                 function exitFullscreen() {
-                    $('body').removeClass('fullscreen');
                     if(document.exitFullscreen) {
                         document.exitFullscreen();
                     } else if(document.mozCancelFullScreen) {
@@ -29,7 +25,17 @@
                     } else if(document.webkitExitFullscreen) {
                         document.webkitExitFullscreen();
                     }
-                }
+                }                                                        
+                $(document).bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+                    var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+                    var event = state ? 'FullscreenOn' : 'FullscreenOff';
+                    if (event = 'FullscreenOff' && event != 'FullscreenOn') {
+                        $('body.fullscreen').removeClass('fullscreen');
+                    }
+                });
+                $('.fullscreen-exit').click(function() {
+                     exitFullscreen();
+                });
                 function album() {
                     var hash = window.location.href.split('#')[1] || '';
                     var start = $('.photoalbum li:nth-of-type(1)');
@@ -103,6 +109,7 @@
                 photopreload();
                 album();
             });
+
         </script>
         {% block scripts %}
         {% endblock scripts %}
@@ -110,6 +117,7 @@
         {% endblock css %} 
     </head>
     <body>
+        <div class="fullscreen-exit">{% include "svg/close.svg" %}</div>
         {% include "partials/header.html" %}
         <div class="content-body">
         <div class="wrapper">
