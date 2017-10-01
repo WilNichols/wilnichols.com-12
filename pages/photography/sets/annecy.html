@@ -1,0 +1,20 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : Annecy{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <ul class="photoalbum" id="imageloader">
+        <li id="1"><a href="#1"><img alt="Photo 1" src="{% static '/static/img/Photography/Compressed/Sets/Carnivale_Annecy/DSCF0153.jpg' %}" /></a></li>
+        <li id="2"><a href="#2"><img alt="Photo 2" src="{% static '/static/img/Photography/Compressed/Sets/Carnivale_Annecy/DSCF0165.jpg' %}" /></a></li>
+        <li id="3"><a href="#3"><img alt="Photo 3" src="{% static '/static/img/Photography/Compressed/Sets/Carnivale_Annecy/DSCF0169.jpg' %}" /></a></li>
+        <li id="4"><a href="#4"><img alt="Photo 4" src="{% static '/static/img/Photography/Compressed/Sets/Carnivale_Annecy/DSCF0237.jpg' %}" /></a></li>
+    </ul>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            
