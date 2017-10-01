@@ -104,17 +104,19 @@ p {
     li {
         font-size: 0;
 //        overflow: hidden;
-        background-color: rgba(255,255,255,.0625);
+        background-color: #101010;
         max-width: 60rem;
         display: none;
         position: absolute;
+        box-shadow: 0 1rem 4rem #000;
+        @include share(width, height, 100%);
         &.front, &.next, &.prev, &.dblnext, &.dblprev {
             display: inline-block;
             transition: transform 0.2s ease-out, opacity 0.2s ease-out;
         }
         &.front {
             z-index: 10;
-            box-shadow: 0 1rem 4rem #000;
+            
             transform: translateX(0) scale(1);
         }
         &.next, &.prev {
@@ -149,22 +151,29 @@ p {
         &.dblprev {
             transform: translateX(-9%) scale(.9);
         }
-        img {
-            @include share(max-width, max-height, 100%);
-            display: block;
-            &.fade-in {
-                @include animation(fade-in 0.2s ease-out);
+        
+        a {
+            @include share(width, height, 100%);
+            img {
+                @include share(max-width, max-height, 100%);
+                display: block;
+                &.fade-in {
+                    @include animation(fade-in 0.2s ease-out);
+                }
             }
-        }
-        i.loader {
-            display: block;
-            position: absolute;
-            @include share(top, left, 50%);
-            margin: -16px 0 0 -16px;
-            @include share(height, width, background-size, 32px);
-            background-repeat: no-repeat;
-            // thanks jxn
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='rgba(255,255,255,0.5)'><path opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/><path d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'><animateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /></path></svg>");
+            &.preloader *:not(.loader), &.preloader *:not(.loader):hover {
+                opacity: 0;
+            }
+            i.loader {
+                display: block;
+                position: absolute;
+                @include share(top, left, 50%);
+                margin: -16px 0 0 -16px;
+                @include share(height, width, background-size, 32px);
+                background-repeat: no-repeat;
+                // thanks jxn
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='rgba(255,255,255,0.5)'><path opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/><path d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'><animateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /></path></svg>");
+            }
         }
     }
 }

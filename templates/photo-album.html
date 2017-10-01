@@ -8,83 +8,72 @@
 
                     
             $(document).ready(function() {
-                var hash = window.location.href.split('#')[1] || '';
-                function clearstate() {
-                    $('ul.photoalbum li').attr('class', '');
-                };
-                function makealbum() {
+                function album() {
+                    var hash = window.location.href.split('#')[1] || '';
                     var start = $('.photoalbum li:nth-of-type(1)');
-                    if (hash != '') {
-                        console.log('there is hash');
-                        var start = $('.photoalbum li:nth-of-type(' + hash + ')');
-                        console.log(String(hash));
-                        console.log(start);
+                    var photos = $('.photoalbum li').length;
+                    var currentphoto = '1';
+                    if (hash <= photos && hash > 0 && hash != '')  {
+                        start = $('.photoalbum li:nth-of-type(' + hash + ')');
+                        currentphoto = hash;
                     }
+                    console.log(currentphoto);
+                    function updatetext() {
+                        $('.counter p').text(currentphoto + '/' + photos);
+                    }
+                    updatetext();
                     start.addClass('front');
                     start.next().addClass('next');
                     start.nextAll().eq(1).addClass('dblnext');
                     start.prev().addClass('prev');
                     start.prevAll().eq(1).addClass('dblprev');
-                    console.log(start);
-                };
-                var loader ="<i class='loader' />";
-                // prog. enhancement; only hide images before load IF js is enabled
-                $('.photocontainer a').append(loader);
-                $('.photocontainer a').addClass('preloader');
-                $('#imageloader').imagesLoaded().progress( function( instance, image ) {
-                    var url = image.img.src;
-                    filename = url.split("/").pop();
-                    var img = $("img[src$='" + filename + "']");
-                    $(img).parent().removeClass('preloader');
-                    //remove loader 
-                    $(img).next().remove();
-                    $(img).addClass("fade-in");
-                }).done( function( instance ) {
-                    console.log( 'all are done!');
-                });
-                makealbum();
-                $(".photoalbum li a").click(function(hash) {
-//                    event.preventDefault();
-                    // make url shareable
-
-                });
-                $(".photoalbum li").click(function() {
                     
-                    if ( $(this).hasClass("next") ) {
-                        clearstate();
-                        console.log('next');
-                        // next to front
-                        $(this).addClass('front').removeClass('next');
-                        // front to prev
-                        $(this).prev().removeClass('front').addClass('prev');
-                        // dblnext to next
-                        $(this).next().addClass('next').removeClass('dblnext');
-                        // create dblnext
-                        $(this).nextAll().eq(1).addClass('dblnext');
-                        // prev to dblprev
-                        $(this).prevAll().eq(1).removeClass('prev').addClass('dblprev');
-                        // dismiss old dblprev
-                        $(this).prevAll().eq(2).removeClass('dblprev');
-                        
-                    }
-                    if ( $(this).hasClass("prev") ) {
-                        clearstate();
-                        console.log('prev');
-                      // next to front
-                        $(this).addClass('front').removeClass('prev');
-                        // front to prev
-                        $(this).next().removeClass('front').addClass('next');
-                        // dblnext to next
-                        $(this).prev().addClass('prev').removeClass('dblprev');
-                        // create dblnext
-                        $(this).prevAll().eq(1).addClass('dblprev');
-                        // prev to dblprev
-                        $(this).nextAll().eq(1).removeClass('next').addClass('dblnext');
-                        // dismiss old dblprev
-                        $(this).nextAll().eq(2).removeClass('dblnext');
-                        
-                    }
-                });
+                    $(".photoalbum li a").click(function() {
+                        event.preventDefault();
+                        var hash = $(this).attr('href');
+                        history.pushState(null, null, hash);
+                        currentphoto = hash.substr(1);
+                        var container = $(this).parent('li');
+                        if (container.hasClass('next')) {
+                            container.addClass('front').removeClass('next');
+                            container.prev().removeClass('front').addClass('prev');
+                            container.next().addClass('next').removeClass('dblnext');
+                            container.nextAll().eq(1).addClass('dblnext');
+                            container.prevAll().eq(1).removeClass('prev').addClass('dblprev');
+                            container.prevAll().eq(2).removeClass('dblprev');
+                        }
+                        if (container.hasClass('prev')) {
+                            container.addClass('front').removeClass('prev');
+                            container.next().removeClass('front').addClass('next');
+                            container.prev().addClass('prev').removeClass('dblprev');
+                            container.prevAll().eq(1).addClass('dblprev');
+                            container.nextAll().eq(1).removeClass('next').addClass('dblnext');
+                            container.nextAll().eq(2).removeClass('dblnext');
+                        }
+                        console.log(currentphoto);
+                        updatetext();
+                    });
+                }
+                function photopreload() {
+                    var loader ="<i class='loader' />";
+                    // prog. enhancement; only hide images before load IF js is enabled
+                    $('.photocontainer a').append(loader);
+                    $('.photocontainer a').addClass('preloader');
+                    $('#imageloader').imagesLoaded().progress( function( instance, image ) {
+                        var url = image.img.src;
+                        filename = url.split("/").pop();
+                        var img = $("img[src$='" + filename + "']");
+                        $(img).parent().removeClass('preloader');
+                        //remove loader 
+                        $(img).next().remove();
+                        $(img).addClass("fade-in");
+                    }).done( function( instance ) {
+                        console.log( 'all are done!');
+                    });
+                }
+                
+                photopreload();
+                album();
             });
         </script>
         {% block scripts %}
@@ -97,12 +86,6 @@
         <div class="content-body">
         <div class="wrapper">
             <div class="container">
-                <nav class="photography-nav">
-                    <ul>
-                        <li class="{% if_current_page '/photography/sets.html' 'active' 'inactive' %}"><a href="/photography/sets.html">Sets</a></li>
-                        <li class="{% if_current_page '/photography/journal.html' 'active' 'inactive' %}"><a href="/photography/journal.html">Journal</a></li>
-                    </ul>
-                </nav>
         {% block content %}
         {% endblock content %}
             </div>
