@@ -190,7 +190,7 @@ body.fullscreen {
         }
         &.front, &.next, &.prev, &.dblnext, &.dblprev {
             display: inline-block;
-            transition: transform 0.2s ease-out, opacity 0.2s ease-out, left 0.2s ease-out, right 0.2s ease-out;
+            transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), left 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), right 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
         }
         &.front {
             z-index: 10;
@@ -265,7 +265,7 @@ body.fullscreen {
                 @include share(max-width, max-height, 100%);
                 display: block;
                 &.fade-in {
-                    @include animation(fade-in 0.2s ease-out);
+                    @include animation(fade-in 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940));
                 }
             }
             &.preloader *:not(.loader), &.preloader *:not(.loader):hover {
@@ -301,18 +301,18 @@ ul.proximal-nav {
                 color: #fff;
                 text-decoration: none;
                 .centering-box {
-                    transition: width 0.2s ease-out;
+                    transition: width 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
                     .icon-caption { 
-                        transition: transform 0.2s ease-out, fill 0.2s ease-out, opacity 0.2s ease-out;
+                        transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
                         transform: translateX(0);
                         opacity: 1;
                             svg path {
-                                transition: fill 0.2s ease-out;
+                                transition: fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
                                 fill: #fff !important;
                             }
                     }
                     h5, h6 {
-                        transition: transform 0.2s ease-out, color 0.2s ease-out;
+                        transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), color 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
                         color: #fff;
                     }
                 }
@@ -326,11 +326,11 @@ ul.proximal-nav {
             position: relative;
         }
         .icon-caption {
-            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+            transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
             opacity: 0;
             position: absolute;
             svg path {
-                transition: fill 0.2s ease-out;
+                transition: fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
                 fill: rgb(0, 122, 255) !important;
             }
         }
@@ -362,7 +362,7 @@ ul.proximal-nav {
             }
         }
         h5, h6 {
-            transition: transform 0.2s ease-out, color 0.2s ease-out;
+            transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), color 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
         }
         h5 {
             font-variant: small-caps;
