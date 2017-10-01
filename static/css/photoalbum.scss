@@ -242,181 +242,95 @@ body.fullscreen {
         }
     }
 }
-.photography-grid {
-    font-size: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: .125rem;
-    .photocontainer {
-        white-space: nowrap;
-        font-size: 0;
-        overflow: hidden;
-        position: relative;
-        padding-top: 66.6666666666%;
-        background-color: rgba(255,255,255,.0625);
-        i.loader {
-            display: block;
-            position: absolute;
-            @include share(top, left, 50%);
-            margin: -16px 0 0 -16px;
-            @include share(height, width, background-size, 32px);
-            background-repeat: no-repeat;
-            // thanks jxn
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='rgba(255,255,255,0.5)'><path opacity='.25' d='M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4'/><path d='M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z'><animateTransform attributeName='transform' type='rotate' from='0 16 16' to='360 16 16' dur='0.8s' repeatCount='indefinite' /></path></svg>");
-        }
-        &.portrait {
-            padding-top: calc(133.33333333333% + .125rem);
-            a img {
-                margin-top: -8.3333333333%;
-            }
-        }
-        &.portrait-full {
-            padding-top: 150%;
-        }
-        a {
-            display: block;
+ul.proximal-nav {
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    
+    li {
+        width: 50%;
+        align-items: center;
+        & > a {
+            display: flex;
             @include share(width, height, 100%);
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            &:hover {
+                color: #fff;
+                text-decoration: none;
+                .centering-box {
+                    transition: width 0.2s ease-out;
+                    .icon-caption { 
+                        transition: transform 0.2s ease-out, fill 0.2s ease-out, opacity 0.2s ease-out;
+                        transform: translateX(0);
+                        opacity: 1;
+                            svg path {
+                                transition: fill 0.2s ease-out;
+                                fill: #fff !important;
+                            }
+                    }
+                    h5, h6 {
+                        transition: transform 0.2s ease-out, color 0.2s ease-out;
+                        color: #fff;
+                    }
+                }
+            }
+
+        }
+        .centering-box {
+            display: block;
+            height: 2.5rem;
+            overflow: visible;
+            position: relative;
+        }
+        .icon-caption {
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+            opacity: 0;
             position: absolute;
-            @include share(top, right, bottom, left, 0);
-            color: #fff;
-            &.preloader *:not(.loader), &.preloader *:not(.loader):hover {
-                opacity: 0;
+            svg path {
+                transition: fill 0.2s ease-out;
+                fill: rgb(0, 122, 255) !important;
             }
-            .titlecontainer {
-                position: absolute; 
-                display: inline-block;
-                @include share(top, right, bottom, left, 0);
-                @include share(width, height, 100%);
-                opacity: 0;
-                @include transition(ease-out 0.2s opacity);
-                font-size: 1rem;
-                @include share(height, width, 100%);
-                vertical-align: middle;
-                text-align: center;
-                background-color: rgba(0, 0, 0, 0.75);
-                top: 0;
-                .title {
-                    @include share(height, line-height, font-size, 1rem);
-                    position: relative;
-                    display: inline-block;
-                    top: 50%;
-                    @include transform(translateY(-1rem));
-                    width: 100%;
-//                    text-transform: lowercase;
-                    font-weight: 600;
-//                    font-variant: small-caps;
-                }
-            }
-            img {
-                width: 100%;
-                display: block;
-                &.fade-in {
-                    @include animation(fade-in 0.2s ease-out);
-                }
+        }
+        &:first-of-type a {
+            padding: 0 12.5% 0 0;
+            text-align: right;
+            justify-content: flex-end;
+            .icon-caption { 
+                transform: translateX(2.5rem);
+                right: 0;
             }
             &:hover {
-                .titlecontainer {
-                    opacity: 1;
-                    @include transition(ease-out 0.2s opacity);
+                h5, h6 {
+                    transform: translateX(-2.5rem);
                 }
             }
         }
-    }
-    .Annecy {
-        grid-column: 1 / 13;
-        grid-row: 1 / 2;
-    }
-    .Amsterdam {
-        grid-column: 1 / 7;
-        grid-row: 2 / 4;
-    }
-    .WomensFirst {
-        grid-column: 7 / 13;
-        grid-row: 2 / 3;
-    }
-    .WomensSecond {
-        grid-column: 7 / 13;
-        grid-row: 3 / 4;
-    }
-    .Julios {
-        grid-column: 1 / 5;
-        grid-row: 4 / 5;
-    }
-    .Abstractions {
-        grid-column: 5 / 9;
-        grid-row: 4 / 5;
-    }
-    .AustenNeon {
-        grid-column: 9 / 13;
-        grid-row: 4 / 6;
-    }
-    .Iceland {
-        grid-column: 1 / 5;
-        grid-row: 5 / 7;
-    }
-    .People {
-        grid-column: 5 / 9;
-        grid-row: 5 / 6;
-    }
-    .Causeway {
-        grid-column: 5 / 13;
-        grid-row: 6 / 8;
-    }
-    .Harpa {
-        grid-column: 1 / 5;
-        grid-row: 7 / 8;
-    }
-    .Lyon {
-        grid-column: 1 / 9;
-        grid-row: 8 / 10;
-    }
-    .Madrid {
-        grid-column: 9 / 13;
-        grid-row: 8 / 9;
-    }
-    .Lisbon {
-        grid-column: 9 / 13;
-        grid-row: 9 / 11;
-    }
-    .London {
-        grid-column: 1 / 9;
-        grid-row: 10 / 12;
-    }
-    .Marseille {
-        grid-column: 9 / 13;
-        grid-row: 11 / 12;
-    }
-    .Seaholm {
-        grid-column: 9 / 13;
-        grid-row: 12 / 14;
-    }
-    .MtBonnel {
-        grid-column: 1 / 9;
-        grid-row: 12 / 14
-    }
-    .Paris {
-        grid-column: 1 / 5;
-        grid-row: 14 / 16;
-    }
-    .SanFermin {
-        grid-column: 5 / 9;
-        grid-row: 14 / 16;
-        .photocontainer a img {
-            margin-top: 0;
+        &:last-of-type a {
+            padding: 0 0 0 12.5%;
+            justify-content: flex-start;
+            .icon-caption { 
+                transform: translateX(-2.5rem);
+                left: 0;
+            }
+            &:hover {
+                h5, h6 {
+                    transform: translateX(2.5rem);
+                }
+            }
         }
-    }
-    .UptownCondos {
-        grid-column: 9 / 13;
-        grid-row: 14 / 16;
-    }
-    .BalloonPerson {
-        grid-column: 1 / 7;
-        grid-row: 16 / 17;
-    }
-    .FormalatVulcan {
-        grid-column: 7 / 13;
-        grid-row: 16 / 17;
-        
+        h5, h6 {
+            transition: transform 0.2s ease-out, color 0.2s ease-out;
+        }
+        h5 {
+            font-variant: small-caps;
+            text-transform: lowercase;
+            font-weight: 600;
+            color: rgba(0, 122, 255, 0.5);
+        }
+        h6 {
+            font-size: 1rem;
+        }
     }
 }
 
