@@ -30,7 +30,7 @@ $(document).ready(function() {
     $('.fullscreen-exit').click(function() {
          exitFullscreen();
     });
-    function album() {
+    function album(keys) {
         var hash = window.location.href.split('#')[1] || '';
         var start = $('.photoalbum li:nth-of-type(1)');
         var photos = $('.photoalbum li').length;
@@ -66,24 +66,31 @@ $(document).ready(function() {
         start.prev().addClass('prev');
         start.prevAll().eq(1).addClass('dblprev');
         
-        $(".photoalbum li a").click(function() {
-                                    
+        window.onkeydown = function(keys) {
+            var container = $(this).parent('.photoalbum li');
+           if (event.keyCode == 37) {
+               $(".photoalbum li.prev a").click();
+           }
+           if (event.keyCode == 39) {
+               $(".photoalbum li.next a").click();
+           }
+        }   
+        
+        $(".photoalbum li a").click(function(container) {  
             var hash = $(this).attr('href');
             history.pushState(null, null, hash);
             currentphoto = hash.substr(1);
-            var container = $(this).parent('li');
-            
+            var container = $(this).parent('.photoalbum li');
             if (container.hasClass('next')) {
                 pagenext(container);
             } else if (container.hasClass('prev')) {
-                pageback((container));
+                pageback(container);
             } else if (container.hasClass('front')) {
                 launchIntoFullscreen(document.documentElement)
             }
             updatetext();
             return false;
-        });                      
-
+        });           
     }
     function photopreload() {
         var loader ="<i class='loader' />";
