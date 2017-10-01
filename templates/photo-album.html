@@ -8,6 +8,28 @@
 
                     
             $(document).ready(function() {
+                function launchIntoFullscreen(element) {
+                    $('body').addClass('fullscreen');
+                    if(element.requestFullscreen) {
+                        element.requestFullscreen();
+                    } else if(element.mozRequestFullScreen) {
+                        element.mozRequestFullScreen();
+                    } else if(element.webkitRequestFullscreen) {
+                        element.webkitRequestFullscreen();
+                    } else if(element.msRequestFullscreen) {
+                        element.msRequestFullscreen();
+                    }
+                }
+                function exitFullscreen() {
+                    $('body').removeClass('fullscreen');
+                    if(document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if(document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    } else if(document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                }
                 function album() {
                     var hash = window.location.href.split('#')[1] || '';
                     var start = $('.photoalbum li:nth-of-type(1)');
@@ -21,6 +43,7 @@
                     function updatetext() {
                         $('.counter p').text(currentphoto + '/' + photos);
                     }
+                   
                     updatetext();
                     start.addClass('front');
                     start.next().addClass('next');
@@ -29,30 +52,35 @@
                     start.prevAll().eq(1).addClass('dblprev');
                     
                     $(".photoalbum li a").click(function() {
-                        event.preventDefault();
+                                                
                         var hash = $(this).attr('href');
                         history.pushState(null, null, hash);
                         currentphoto = hash.substr(1);
                         var container = $(this).parent('li');
+                        
                         if (container.hasClass('next')) {
+                            console.log('next');
                             container.addClass('front').removeClass('next');
                             container.prev().removeClass('front').addClass('prev');
                             container.next().addClass('next').removeClass('dblnext');
                             container.nextAll().eq(1).addClass('dblnext');
                             container.prevAll().eq(1).removeClass('prev').addClass('dblprev');
                             container.prevAll().eq(2).removeClass('dblprev');
-                        }
-                        if (container.hasClass('prev')) {
+                        } else if (container.hasClass('prev')) {
+                            console.log('prev');
                             container.addClass('front').removeClass('prev');
                             container.next().removeClass('front').addClass('next');
                             container.prev().addClass('prev').removeClass('dblprev');
                             container.prevAll().eq(1).addClass('dblprev');
                             container.nextAll().eq(1).removeClass('next').addClass('dblnext');
                             container.nextAll().eq(2).removeClass('dblnext');
+                        } else if (container.hasClass('front')) {
+                            launchIntoFullscreen(document.documentElement)
                         }
-                        console.log(currentphoto);
                         updatetext();
-                    });
+                        return false;
+                    });                      
+
                 }
                 function photopreload() {
                     var loader ="<i class='loader' />";
