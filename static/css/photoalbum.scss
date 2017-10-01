@@ -175,14 +175,21 @@ body.fullscreen {
         position: absolute;
         box-shadow: 0 1rem 4rem #000;
         @include share(width, height, 100%);
+        &.portrait {
+            width: 44.444444444%;
+            left: 50%;
+            outline: 1px solid #ff0000;
+        }
         &.front, &.next, &.prev, &.dblnext, &.dblprev {
             display: inline-block;
-            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out, left 0.2s ease-out, right 0.2s ease-out, width 0.2s ease-out;
         }
         &.front {
             z-index: 10;
-            
             transform: translateX(0) scale(1);
+            &.portrait {
+                transform: translateX(-50%) scale(1);
+            }
         }
         &.next, &.prev {
             z-index: 0;
@@ -193,15 +200,15 @@ body.fullscreen {
                 opacity: 0.9;
             }
         }
-        &.next {
+        &.next, &.next.portrait {
             transform: translateX(8%) scale(.9);
-            &.next:hover {
+            &:hover {
                 transform: translateX(calc(8% + .25rem)) scale(.9125);
             }
         }
-        &.prev {
+        &.prev, &.prev.portrait {
             transform: translateX(-8%) scale(.9);
-            &.prev:hover {
+            &:hover {
                 transform: translateX(calc(-8% - .25rem)) scale(.9125);
             }
         }
@@ -210,11 +217,18 @@ body.fullscreen {
             opacity: 0;
             pointer-events: none;
         }
-        &.dblnext {
+        &.dblnext, &.dblnext.portrait {
             transform: translateX(9%) scale(.9);
         }
-        &.dblprev {
+        &.dblprev, &.dblprev.portrait {
             transform: translateX(-9%) scale(.9);
+        }
+        &.prev.portrait, &.dblprev.portrait {
+            left: 0;
+        }
+        &.next.portrait, &.dblnext.portrait {
+            right: 0;
+            left: auto;
         }
         
         a {
