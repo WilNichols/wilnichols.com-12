@@ -1,0 +1,64 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : Women's March (1/2){% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <div class="wrapper">	
+        <div class="container">    
+            <nav class="photography-nav">
+                <ul>
+                    <li class="breadcrumbs"><ul><li><a href="../sets.html">Sets</a></li><li class="separator">{% include "svg/breadcrumb.svg" %}</li><li><span>Women's March (1/2)</span></li></ul></li>
+                    <li class="counter"><p></p></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="photoalbumwrapper">
+        <span class="button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <ul class="photoalbum" id="imageloader">
+            <li id="1" class="photocontainer portrait"><a href="#1"><img alt="Photo 1" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5182.jpg' %}" /></a></li>
+            <li id="2" class="photocontainer portrait"><a href="#2"><img alt="Photo 2" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5280.jpg' %}" /></a></li>
+            <li id="3" class="photocontainer portrait"><a href="#3"><img alt="Photo 3" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5295.jpg' %}" /></a></li>
+            <li id="4" class="photocontainer"><a href="#4"><img alt="Photo 4" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5307.jpg' %}" /></a></li>
+            <li id="5" class="photocontainer"><a href="#5"><img alt="Photo 5" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5341.jpg' %}" /></a></li>
+            <li id="6" class="photocontainer portrait"><a href="#6"><img alt="Photo 6" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5357.jpg' %}" /></a></li>
+            <li id="7" class="photocontainer portrait"><a href="#7"><img alt="Photo 7" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5358.jpg' %}" /></a></li>
+            <li id="8" class="photocontainer portrait"><a href="#8"><img alt="Photo 8" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5373.jpg' %}" /></a></li>
+            <li id="9" class="photocontainer portrait"><a href="#9"><img alt="Photo 9" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5375.jpg' %}" /></a></li>
+            <li id="10" class="photocontainer"><a href="#10"><img alt="Photo 10" src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_1-of-2/DSCF5379.jpg' %}" /></a></li>
+        </ul>
+    </div>
+    <div class="wrapper">	
+        <div class="container">    
+            <ul class="proximal-nav">
+                <li class="prev">
+                    <span class="centering-box">
+                        <a href="amsterdam.html">                
+                            <div class="icon-caption">{% include "svg/proximal-prev.svg" %}</div>
+                            <h5>Previous Set</h5>
+                            <h6>Six Hours in Amsterdam</h6>
+                        </a>
+                    </span>
+                </li>
+                <li class="next">
+                    <span class="centering-box">
+                        <a href="womensmarchtwo.html">
+                            <div class="icon-caption">{% include "svg/proximal-next.svg" %}</div>
+                            <h5>Next Set</h5>
+                            <h6>Women's March (2/2)</h6>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            

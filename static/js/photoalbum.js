@@ -59,6 +59,18 @@ $(document).ready(function() {
             container.nextAll().eq(1).removeClass('next').addClass('dblnext');
             container.nextAll().eq(2).removeClass('dblnext');
        }
+       function checkposition() {
+           if ($(".photoalbum li:first-of-type").hasClass('front')) {
+                $(".button-prev").hide();
+            } else {
+                $(".button-prev").show();
+            } 
+            if ($(".photoalbum li:last-of-type").hasClass('front')) {
+                $(".button-next").hide();
+            } else {
+                $(".button-next").show();
+            }
+       }
         updatetext();
         start.addClass('front');
         start.next().addClass('next');
@@ -89,8 +101,10 @@ $(document).ready(function() {
                 launchIntoFullscreen(document.documentElement)
             }
             updatetext();
+            checkposition();
             return false;
-        });           
+        });   
+        checkposition();
     }
     function photopreload() {
         var loader ="<i class='loader' />";

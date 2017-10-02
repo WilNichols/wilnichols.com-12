@@ -61,6 +61,32 @@ p {
         fill: transparent !important; 
     }
 }
+.button-next, .button-prev {
+        cursor: pointer;
+        z-index: 100;
+        top: 50%;
+        margin-top: -1rem;
+        @include share(width, height, 2rem);
+        border-radius: 50%;
+        background-color: rgba(28, 28, 28, .73);
+        @include filter(saturate(2));
+        -webkit-backdrop-filter: blur(.5rem);
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+
+}
+.button-next {
+    right: 1rem;
+    justify-content: flex-start;
+}
+.button-prev {
+    left: 1rem;
+    justify-content: flex-end;
+}
+
 body.fullscreen {
     .fullscreen-exit {
         cursor: pointer;
@@ -158,7 +184,10 @@ body.fullscreen {
         }
     }
 }
-
+.photoalbumwrapper {
+    position: relative;
+    overflow: hidden;
+}
 .photoalbum {
     display: block;
     position: relative;
@@ -173,16 +202,20 @@ body.fullscreen {
         display: none;
         position: absolute;
         box-shadow: 0 1rem 4rem #000;
-        &:not(.portrait) {
-            padding-bottom: 50%;
-            padding-right: 75%;
-            max-width: 2400px;
-            max-height: 1600px;
-        }
+        padding-bottom: 50%;
+        padding-right: 75%;
+        max-width: 2400px;
+        max-height: 1600px;
         &.portrait {
             padding-bottom: 50%;
             padding-right: calc(100%/3);
             max-width: 1066px;
+            max-height: 1600px;
+        }
+        &.square {
+            padding-bottom: 50%;
+            padding-right: 50%;
+            max-width: 1600px;
             max-height: 1600px;
         }
         &.front, &.next, &.prev, &.dblnext, &.dblprev {
@@ -218,6 +251,12 @@ body.fullscreen {
                     transform: translateX(calc(50vw + 112.6% + 1rem)) scale(1);
                 }
             }
+            &.square {
+                transform: translateX(calc(50vw + 75.6% + 1rem)) scale(.9875);
+                &:hover {
+                    transform: translateX(calc(50vw + 75.6% + 1rem)) scale(1);
+                }
+            }
         }
         &.prev {
             transform: translateX(calc(50vw - 150% - 1rem)) scale(.9875);
@@ -225,10 +264,15 @@ body.fullscreen {
                 transform: translateX(calc(50vw - 150% - 1rem)) scale(1);
             }
             &.portrait {
-                // magic numbers
                 transform: translateX(calc(50vw - 212.6% - 1rem)) scale(.9875);
                 &:hover {
                     transform: translateX(calc(50vw - 212.6% - 1rem)) scale(1);
+                }
+            }
+            &.square {
+                transform: translateX(calc(50vw - 175.6% - 1rem)) scale(.9875);
+                &:hover {
+                    transform: translateX(calc(50vw - 175.6% - 1rem)) scale(1);
                 }
             }
         }
@@ -242,12 +286,19 @@ body.fullscreen {
             &.portrait {
                 transform: translateX(calc(50vw - 225.1% - 1rem)) scale(.9875);
             }
+            &.square {
+                transform: translateX(calc(50vw - 188.1% - 1rem)) scale(.9875);
+            }
         }
         &.dblnext {
             transform: translateX(calc(50vw + 67.5% + 1rem)) scale(.9875);
             &.portrait {
-                transform: translateX(calc(50vw + 125.1% + 1rem)) scale(.9875);
+                transform: translateX(calc(50vw + 130.1% + 1rem)) scale(.9875);
             }
+            &.portrait {
+                transform: translateX(calc(50vw + 88.1% + 1rem)) scale(.9875);
+            }
+            
         }
         a {
             background-color: rgba(255, 255, 255, 0.5);
