@@ -1,0 +1,61 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : People{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <div class="wrapper">	
+        <div class="container">    
+            <nav class="photography-nav">
+                <ul>
+                    <li class="breadcrumbs"><ul><li><a href="../sets.html">Sets</a></li><li class="separator">{% include "svg/breadcrumb.svg" %}</li><li><span>Austen, Neon</span></li></ul></li>
+                    <li class="counter"><p></p></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="photoalbumwrapper">
+        <span class="button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <ul class="photoalbum" id="imageloader">
+            <li id="1" class="photocontainer portrait"><a href="#1"><img alt="Photo 1" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF0060.jpg' %}" /></a></li>
+            <li id="2" class="photocontainer"><a href="#2"><img alt="Photo 2" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF0097.jpg' %}" /></a></li>
+            <li id="3" class="photocontainer portrait"><a href="#3"><img alt="Photo 3" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF0352.jpg' %}" /></a></li>
+            <li id="4" class="photocontainer portrait"><a href="#4"><img alt="Photo 4" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF0385.jpg' %}" /></a></li>
+            <li id="5" class="photocontainer portrait"><a href="#5"><img alt="Photo 5" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF6161.jpg' %}" /></a></li>
+            <li id="6" class="photocontainer"><a href="#6"><img alt="Photo 6" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF6167.jpg' %}" /></a></li>
+            <li id="7" class="photocontainer"><a href="#7"><img alt="Photo 7" src="{% static '/static/img/Photography/Compressed/Sets/People/DSCF6163.jpg' %}" /></a></li>
+        </ul>
+    </div>
+    <div class="wrapper">	
+        <div class="container">    
+            <ul class="proximal-nav">
+                <li class="prev">
+                    <span class="centering-box">
+                        <a href="austenneon.html">
+                            <div class="icon-caption">{% include "svg/proximal-prev.svg" %}</div>
+                            <h5>Previous Set</h5>
+                            <h6>Austen. Neon</h6>
+                        </a>
+                    </span>
+                </li>
+                <li class="next">
+                    <span class="centering-box">
+                        <a href="icelandcoast.html">
+                            <div class="icon-caption">{% include "svg/proximal-next.svg" %}</div>
+                            <h5>Next Set</h5>
+                            <h6>Iceland, Southern Coast</h6>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            
