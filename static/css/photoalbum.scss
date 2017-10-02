@@ -148,7 +148,7 @@ body.fullscreen {
             a, p, span {
                 font-size: .75rem;
                 color: #fff;
-                font-weight: 300;
+
                 margin: 0;
                 display: inline;
                 &:hover {
@@ -284,16 +284,31 @@ ul.proximal-nav {
     li {
         width: 50%;
         align-items: center;
-        & > a {
+        & > span {
             display: flex;
             @include share(width, height, 100%);
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.25);
-            &:hover {
-                color: #fff;
-                text-decoration: none;
-                .centering-box {
-                    transition: width 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+            a {
+                transition: width 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                display: block;
+                height: 2.5rem;
+                overflow: visible;
+                position: relative;
+                h5, h6 {
+                    transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), color 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                }
+                h5 {
+                    font-variant: small-caps;
+                    text-transform: lowercase;
+                    font-weight: 600;
+                    color: rgba(0, 122, 255, 0.5);
+                }
+                h6 {
+                    font-size: 1rem;
+                }
+                &:hover {
+                    color: #fff;
+                    text-decoration: none;
                     .icon-caption { 
                         transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
                         transform: translateX(0);
@@ -308,14 +323,8 @@ ul.proximal-nav {
                         color: #fff;
                     }
                 }
+                
             }
-
-        }
-        .centering-box {
-            display: block;
-            height: 2.5rem;
-            overflow: visible;
-            position: relative;
         }
         .icon-caption {
             transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
@@ -326,44 +335,38 @@ ul.proximal-nav {
                 fill: rgb(0, 122, 255) !important;
             }
         }
-        &:first-of-type a {
+        &:first-of-type span {
             padding: 0 12.5% 0 0;
             text-align: right;
             justify-content: flex-end;
             .icon-caption { 
-                transform: translateX(2.5rem);
                 right: 0;
+                transform: translateX(2.5rem);
             }
-            &:hover {
-                h5, h6 {
+            a:hover {
+                .icon-caption {
+                    transform: translateX(0);
+                }
+                h5, h6 { 
                     transform: translateX(-2.5rem);
                 }
             }
         }
-        &:last-of-type a {
+        &:last-of-type span {
             padding: 0 0 0 12.5%;
             justify-content: flex-start;
             .icon-caption { 
-                transform: translateX(-2.5rem);
                 left: 0;
+                transform: translateX(-2.5rem);
             }
-            &:hover {
-                h5, h6 {
+            a:hover {
+                .icon-caption {
+                    transform: translateX(0);
+                }
+                h5, h6 { 
                     transform: translateX(2.5rem);
                 }
             }
-        }
-        h5, h6 {
-            transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), color 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-        }
-        h5 {
-            font-variant: small-caps;
-            text-transform: lowercase;
-            font-weight: 600;
-            color: rgba(0, 122, 255, 0.5);
-        }
-        h6 {
-            font-size: 1rem;
         }
     }
 }
