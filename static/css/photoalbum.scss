@@ -301,8 +301,9 @@ body.fullscreen {
             
         }
         a {
-            background-color: rgba(255, 255, 255, 0.5);
-            position: absolute;;
+            background-color: transparent;
+            position: absolute;
+            @include share(width, height, 100%);
             img {
                 display: inline;
                 width: 100%;

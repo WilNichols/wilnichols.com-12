@@ -119,7 +119,7 @@ $(document).ready(function() {
         // prog. enhancement; only hide images before load IF js is enabled
         $('.photocontainer a').append(loader);
         $('.photocontainer a').addClass('preloader');
-        $('#imageloader').imagesLoaded().progress( function( instance, image ) {
+        $('#imageloader').imagesLoaded().progress(function(instance, image) {
             var url = image.img.src;
             filename = url.split("/").pop();
             var img = $("img[src$='" + filename + "']");
