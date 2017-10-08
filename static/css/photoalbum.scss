@@ -140,15 +140,11 @@ body.fullscreen {
             text-align: center;
             padding: 0 90% 60% 0;
             a {
-                cursor: url('../img/cursor-unzoom.png');
+                cursor: url('../img/cursor-unzoom@2x.png');
                     @media screen and (-webkit-max-device-pixel-ratio: 1), screen and (max-resolution: 96dpi) { 
                         cursor: url('../img/cursor-unzoom.png');
                     }
                 cursor: -webkit-image-set(
-                        url('../img/cursor-unzoom.png') 1x,
-                        url('../img/cursor-unzoom@2x.png') 2x),
-                        zoom-in;
-                cursor: image-set(
                         url('../img/cursor-unzoom.png') 1x,
                         url('../img/cursor-unzoom@2x.png') 2x),
                         zoom-in;
