@@ -39,7 +39,6 @@ $(document).ready(function() {
             start = $('.photoalbum li:nth-of-type(' + hash + ')');
             currentphoto = hash;
         }
-        console.log(currentphoto);
         function updatetext() {
             $('.counter p').text(currentphoto + '/' + photos);
         }
@@ -93,7 +92,6 @@ $(document).ready(function() {
             $(this).attr('id', index);
             $(this).children().attr('href', '#' + index);
             $(this).find('img').attr('alt', 'Photo ' + index);
-            console.log($(this).attr('id', index));
         })
         $(".photoalbum li a").click(function(container) {  
             var hash = $(this).attr('href');
@@ -113,11 +111,9 @@ $(document).ready(function() {
         });   
         $(".button-next").click(function() {
             $('.photoalbum li.next a').click();
-            console.log('next');
         })
         $(".button-prev").click(function() {
             $('.photoalbum li.prev a').click();
-            console.log('prev')
         })
         checkposition();
     }
