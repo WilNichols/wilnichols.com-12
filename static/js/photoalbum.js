@@ -27,8 +27,9 @@ $(document).ready(function() {
             $('body.fullscreen').removeClass('fullscreen');
         }
     });
-    $('.fullscreen-exit').click(function() {
+    $('.fullscreen-exit, body.fullscreen .front.exit-fullscreen').click(function() {
          exitFullscreen();
+         console.log('lol');
     });
     function album(keys) {
         var hash = window.location.href.split('#')[1] || '';
@@ -103,7 +104,11 @@ $(document).ready(function() {
             } else if (container.hasClass('prev')) {
                 pageback(container);
             } else if (container.hasClass('front')) {
-                launchIntoFullscreen(document.documentElement)
+                if ($('body').hasClass('fullscreen')) {
+                    exitFullscreen();
+                } else {
+                    launchIntoFullscreen(document.documentElement)
+                }
             }
             updatetext();
             checkposition();
