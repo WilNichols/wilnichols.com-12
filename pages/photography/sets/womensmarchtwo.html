@@ -6,7 +6,7 @@
 {% endblock css %}
 
 {% block content %}		
-    <div class="wrapper">	
+    <div class="wrapper photography-nav-wrapper">	
         <div class="container">    
             <nav class="photography-nav">
                 <ul>
@@ -17,15 +17,15 @@
         </div>
     </div>
     <div class="photoalbumwrapper">
-        <span class="button-next">{% include "svg/album-next.svg" %}</span>
-        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <span class="button button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button button-prev">{% include "svg/album-prev.svg" %}</span>
         <ul class="photoalbum" id="imageloader">
             <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_2-of-2/DSCF5188.jpg' %}" /></a></li>
             <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_2-of-2/DSCF5271.jpg' %}" /></a></li>
             <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Womens_March_2-of-2/DSCF5384.jpg' %}" /></a></li>
         </ul>
     </div>
-    <div class="wrapper">	
+    <div class="wrapper proximal-nav-wrapper">	
         <div class="container">    
             <ul class="proximal-nav">
                 <li class="prev">

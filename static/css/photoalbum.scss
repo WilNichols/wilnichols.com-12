@@ -73,9 +73,24 @@ p {
         -webkit-backdrop-filter: blur(.5rem);
         position: absolute;
         z-index: 1000;
-        pointer-events: none;
+//        pointer-events: none;
         display: flex;
         align-items: center;
+        transition: 0.2s transform $quad-out, 0.2s background-color $quad-out;
+        svg {
+            transition: 0.2s opacity $quad-out;
+        }
+        &:hover {
+            transform: scale(1.025);
+            
+        }
+        &:active {
+            transform: scale(.975);
+            background-color: rgba(28, 28, 28, .5);
+            svg {
+                opacity: 0.75;
+            }
+        }
 
 }
 .button-next {
@@ -95,49 +110,43 @@ body.fullscreen {
         z-index: 100;
         @include share(top, right, 1rem);
         @include share(width, height, 2rem);
-        border-radius: 50%;
-        background-color: rgba(28, 28, 28, .73);
-        @include filter(saturate(2));
-        -webkit-backdrop-filter: blur(.5rem);
+        background-color: transparent;
+    }
+    .button-next, .button-prev  {
+        pointer-events: all;
+        background-color: transparent;
+        border-radius: 0;
+        -webkit-backdrop-filter: none;
+        @include filter(none);
     }
     body > * {
         display: none;
     }
-    .header, .photography-nav, .footer {
+    .header, .photography-nav, .footer, .proximal-nav-wrapper, .photography-nav-wrapper {
         display: none;
     }
     .photoalbum {
         height: 100vh;
-        width: 100vw;
-        max-width: intrinsic;
-        display: grid;
-        padding-bottom: 0;
+        display: flex;
         align-items: center;
-        position: absolute;
-        @include share(top, right, bottom, left, 0);
-        justify-content: center;
-        background-color: #000;
+        padding: 0;
+
     }
     .photoalbum li {
         display: none;
         &.front {
             display: block;
             background-color: #000;
-            max-width: intrinsic;
-            width: 100vw;
             text-align: center;
-            a {
-                display: grid;
-                align-items: center;
-                justify-content: center;
-                width: 100vw;
-                height: 100vh;
+                padding: 0 90% 60% 0;
+            &.portrait {
+                padding: 0 40% 60% 0;
             }
-            img {
-                display: inline-block;
+            &.square {
+                padding: 0 50% 50% 0;
             }
         } 
-    }
+    } 
     
 }
 .photography-nav {
@@ -192,7 +201,7 @@ body.fullscreen {
     display: block;
     position: relative;
     // padding to make block el since absolute children
-    padding-bottom: 50%;
+    padding: 0 0 50% 0;
     max-width: 100vw;
     overflow: hidden;
     margin: 0 auto;
@@ -202,25 +211,22 @@ body.fullscreen {
         display: none;
         position: absolute;
         box-shadow: 0 1rem 4rem #000;
-        padding-bottom: 50%;
-        padding-right: 75%;
+        padding: 0 75% 50% 0;
         max-width: 2400px;
         max-height: 1600px;
         &.portrait {
-            padding-bottom: 50%;
-            padding-right: calc(100%/3);
+            padding: 0 33.33% 50% 0 0;
             max-width: 1066px;
             max-height: 1600px;
         }
         &.square {
-            padding-bottom: 50%;
-            padding-right: 50%;
+            padding: 0 50% 50% 0;
             max-width: 1600px;
             max-height: 1600px;
         }
         &.front, &.next, &.prev, &.dblnext, &.dblprev {
             display: block;
-            transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+            transition: transform 0.2s $quad-out;
         }
         &.front {
             z-index: 10;
@@ -362,7 +368,7 @@ ul.proximal-nav {
                     color: #fff;
                     text-decoration: none;
                     .icon-caption { 
-                        transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                        transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), fill 0.2s $quad-out;
                         transform: translateX(0);
                         opacity: 1;
                             svg path {
@@ -379,7 +385,7 @@ ul.proximal-nav {
             }
         }
         .icon-caption {
-            transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+            transition: transform 0.2s $quad-out;
             opacity: 0;
             position: absolute;
             svg path {

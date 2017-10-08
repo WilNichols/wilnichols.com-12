@@ -87,7 +87,6 @@ $(document).ready(function() {
                $(".photoalbum li.next a").click();
            }
         }   
-        // set a href
         $(".photoalbum li").each(function(index) {
             //set id
             var index = $(this).index() + 1;
@@ -112,6 +111,14 @@ $(document).ready(function() {
             checkposition();
             return false;
         });   
+        $(".button-next").click(function() {
+            $('.photoalbum li.next a').click();
+            console.log('next');
+        })
+        $(".button-prev").click(function() {
+            $('.photoalbum li.prev a').click();
+            console.log('prev')
+        })
         checkposition();
     }
     function photopreload() {
