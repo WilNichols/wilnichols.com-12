@@ -1,0 +1,63 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : Marseille{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <div class="wrapper">	
+        <div class="container">    
+            <nav class="photography-nav">
+                <ul>
+                    <li class="breadcrumbs"><ul><li><a href="../sets.html">Sets</a></li><li class="separator">{% include "svg/breadcrumb.svg" %}</li><li><span>Marseille</span></li></ul></li>
+                    <li class="counter"><p></p></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="photoalbumwrapper">
+        <span class="button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <ul class="photoalbum" id="imageloader">
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF8563.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF8633.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF8702.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF8748.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF8760.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF9003.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF9077.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF9259.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Marseille/DSCF8999.jpg' %}" /></a></li>
+</ul>
+    </div>
+    <div class="wrapper">	
+        <div class="container">    
+            <ul class="proximal-nav">
+                <li class="prev">
+                    <span class="centering-box">
+                        <a href="London.html">
+                            <div class="icon-caption">{% include "svg/proximal-prev.svg" %}</div>
+                            <h5>Previous Set</h5>
+                            <h6>London</h6>
+                        </a>
+                    </span>
+                </li>
+                <li class="next">
+                    <span class="centering-box">
+                        <a href="mtbonnel.html">
+                            <div class="icon-caption">{% include "svg/proximal-next.svg" %}</div>
+                            <h5>Next Set</h5>
+                            <h6>Mount Bonnel</h6>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            

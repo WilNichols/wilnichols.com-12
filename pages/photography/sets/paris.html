@@ -1,0 +1,67 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : Paris{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <div class="wrapper">	
+        <div class="container">    
+            <nav class="photography-nav">
+                <ul>
+                    <li class="breadcrumbs"><ul><li><a href="../sets.html">Sets</a></li><li class="separator">{% include "svg/breadcrumb.svg" %}</li><li><span>Paris</span></li></ul></li>
+                    <li class="counter"><p></p></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="photoalbumwrapper">
+        <span class="button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <ul class="photoalbum" id="imageloader">
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2502.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2493.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2509.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2560.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2472.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2581.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2630.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2640.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2643.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2648.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2658.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2455.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Paris/DSCF2461.jpg' %}" /></a></li>
+        </ul>
+    </div>
+    <div class="wrapper">	
+        <div class="container">    
+            <ul class="proximal-nav">
+                <li class="prev">
+                    <span class="centering-box">
+                        <a href="seaholm.html">
+                            <div class="icon-caption">{% include "svg/proximal-prev.svg" %}</div>
+                            <h5>Previous Set</h5>
+                            <h6>Seaholm</h6>
+                        </a>
+                    </span>
+                </li>
+                <li class="next">
+                    <span class="centering-box">
+                        <a href="sanfermin.html">
+                            <div class="icon-caption">{% include "svg/proximal-next.svg" %}</div>
+                            <h5>Next Set</h5>
+                            <h6>San Fermin, Antone's</h6>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            

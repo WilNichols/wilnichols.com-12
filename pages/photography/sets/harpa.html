@@ -1,0 +1,65 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : Harpa{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <div class="wrapper">	
+        <div class="container">    
+            <nav class="photography-nav">
+                <ul>
+                    <li class="breadcrumbs"><ul><li><a href="../sets.html">Sets</a></li><li class="separator">{% include "svg/breadcrumb.svg" %}</li><li><span>Harpa</span></li></ul></li>
+                    <li class="counter"><p></p></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="photoalbumwrapper">
+        <span class="button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <ul class="photoalbum" id="imageloader">
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7624.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7628.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7637.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7646.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7649.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7659.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7677.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7697.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7700.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7706.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/Harpa/DSCF7711.jpg' %}" /></a></li>        
+</ul>
+    </div>
+    <div class="wrapper">	
+        <div class="container">    
+            <ul class="proximal-nav">
+                <li class="prev">
+                    <span class="centering-box">
+                        <a href="icelandsoutherncoast.html">
+                            <div class="icon-caption">{% include "svg/proximal-prev.svg" %}</div>
+                            <h5>Previous Set</h5>
+                            <h6>Iceland, Southern Coast</h6>
+                        </a>
+                    </span>
+                </li>
+                <li class="next">
+                    <span class="centering-box">
+                        <a href="giantscauseway.html">
+                            <div class="icon-caption">{% include "svg/proximal-next.svg" %}</div>
+                            <h5>Next Set</h5>
+                            <h6>Giant's Causeway</h6>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            

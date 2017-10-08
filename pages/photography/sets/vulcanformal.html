@@ -1,0 +1,62 @@
+{% extends "photo-album.html" %}
+{% block title %}Wil Nichols : Photography : Sets : Vulcan Gas Company{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/static/css/photoalbum.css' %}" />
+{% endblock css %}
+
+{% block content %}		
+    <div class="wrapper">	
+        <div class="container">    
+            <nav class="photography-nav">
+                <ul>
+                    <li class="breadcrumbs"><ul><li><a href="../sets.html">Sets</a></li><li class="separator">{% include "svg/breadcrumb.svg" %}</li><li><span>Vulcan Gas Company</span></li></ul></li>
+                    <li class="counter"><p></p></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="photoalbumwrapper">
+        <span class="button-next">{% include "svg/album-next.svg" %}</span>
+        <span class="button-prev">{% include "svg/album-prev.svg" %}</span>
+        <ul class="photoalbum" id="imageloader">
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3960.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3938.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3933.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3945.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3929.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3922.jpg' %}" /></a></li>
+            <li class="photocontainer portrait"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3909.jpg' %}" /></a></li>
+            <li class="photocontainer"><a><img src="{% static '/static/img/Photography/Compressed/Sets/VulcanGasCompany/DSCF3873.jpg' %}" /></a></li>
+        </ul>
+    </div>
+    <div class="wrapper">	
+        <div class="container">    
+            <ul class="proximal-nav">
+                <li class="prev">
+                    <span class="centering-box">
+                        <a href="theballoonperson.html">
+                            <div class="icon-caption">{% include "svg/proximal-prev.svg" %}</div>
+                            <h5>Previous Set</h5>
+                            <h6>The Balloon Person</h6>
+                        </a>
+                    </span>
+                </li>
+                <li class="next">
+                    <span class="centering-box">
+                        <a href="https://www.instagram.com/wilthedznr" target="_blank">
+                            <div class="icon-caption">{% include "svg/proximal-insta.svg" %}</div>
+                            <h5>Get the Latest</h5>
+                            <h6>Follow me on Instagram.</h6>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+            

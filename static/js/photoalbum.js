@@ -87,7 +87,15 @@ $(document).ready(function() {
                $(".photoalbum li.next a").click();
            }
         }   
-        
+        // set a href
+        $(".photoalbum li").each(function(index) {
+            //set id
+            var index = $(this).index() + 1;
+            $(this).attr('id', index);
+            $(this).children().attr('href', '#' + index);
+            $(this).find('img').attr('alt', 'Photo ' + index);
+            console.log($(this).attr('id', index));
+        })
         $(".photoalbum li a").click(function(container) {  
             var hash = $(this).attr('href');
             history.pushState(null, null, hash);
