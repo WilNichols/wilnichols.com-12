@@ -76,9 +76,9 @@ p {
 //        pointer-events: none;
         display: flex;
         align-items: center;
-        transition: 0.2s transform $quad-out, 0.2s background-color $quad-out;
+        transition: $duration transform $quad-out, $duration background-color $quad-out;
         svg {
-            transition: 0.2s opacity $quad-out;
+            transition: $duration opacity $quad-out;
         }
         &:hover {
             transform: scale(1.025);
@@ -215,7 +215,7 @@ body.fullscreen {
         max-width: 2400px;
         max-height: 1600px;
         &.portrait {
-            padding: 0 33.33% 50% 0 0;
+            padding: 0 33.33% 50% 0;
             max-width: 1066px;
             max-height: 1600px;
         }
@@ -226,11 +226,15 @@ body.fullscreen {
         }
         &.front, &.next, &.prev, &.dblnext, &.dblprev {
             display: block;
-            transition: transform 0.2s $quad-out;
+            transition: transform $duration $quad-out, opacity $duration $quad-out;
         }
         &.front {
             z-index: 10;
             transform: translateX(calc(50vw - 50%)) scale(1);
+            &:active {
+                transform: translateX(calc(50vw - 50%)) scale(.995);
+                opacity: 0.95;
+            }
         }
         &.next, &.prev {
             z-index: 0;
@@ -249,18 +253,27 @@ body.fullscreen {
         &.next {
             transform: translateX(calc(50vw + 50% + 1rem)) scale(.9875);
             &:hover {
-                    transform: translateX(calc(50vw + 50% + 1rem)) scale(1);
-                }
+                transform: translateX(calc(50vw + 50% + 1rem)) scale(1);
+            }
+            &:active {
+                transform: translateX(calc(50vw + 50% + 1rem)) scale(.995);
+            }
             &.portrait {
                 transform: translateX(calc(50vw + 112.6% + 1rem)) scale(.9875);
                 &:hover {
                     transform: translateX(calc(50vw + 112.6% + 1rem)) scale(1);
+                }
+                &:active {
+                    transform: translateX(calc(50vw + 112.6% + 1rem)) scale(.995);
                 }
             }
             &.square {
                 transform: translateX(calc(50vw + 75.6% + 1rem)) scale(.9875);
                 &:hover {
                     transform: translateX(calc(50vw + 75.6% + 1rem)) scale(1);
+                }
+                &:active {
+                    transform: translateX(calc(50vw + 75.6% + 1rem)) scale(.995);
                 }
             }
         }
@@ -269,16 +282,25 @@ body.fullscreen {
             &:hover {
                 transform: translateX(calc(50vw - 150% - 1rem)) scale(1);
             }
+            &:active {
+                transform: translateX(calc(50vw - 150% - 1rem)) scale(.995);
+            }
             &.portrait {
                 transform: translateX(calc(50vw - 212.6% - 1rem)) scale(.9875);
                 &:hover {
                     transform: translateX(calc(50vw - 212.6% - 1rem)) scale(1);
+                }
+                &:active {
+                    transform: translateX(calc(50vw - 212.6% - 1rem)) scale(.995);
                 }
             }
             &.square {
                 transform: translateX(calc(50vw - 175.6% - 1rem)) scale(.9875);
                 &:hover {
                     transform: translateX(calc(50vw - 175.6% - 1rem)) scale(1);
+                }
+                &:active {
+                    transform: translateX(calc(50vw - 175.6% - 1rem)) scale(.995);
                 }
             }
         }
@@ -301,7 +323,7 @@ body.fullscreen {
             &.portrait {
                 transform: translateX(calc(50vw + 130.1% + 1rem)) scale(.9875);
             }
-            &.portrait {
+            &.square {
                 transform: translateX(calc(50vw + 88.1% + 1rem)) scale(.9875);
             }
             
@@ -314,7 +336,7 @@ body.fullscreen {
                 display: inline;
                 width: 100%;
                 &.fade-in {
-                    @include animation(fade-in 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940));
+                    @include animation(fade-in $duration cubic-bezier(0.250, 0.460, 0.450, 0.940));
                 }
             }
             &.preloader *:not(.loader), &.preloader *:not(.loader):hover {
@@ -347,13 +369,13 @@ ul.proximal-nav {
             @include share(width, height, 100%);
             align-items: center;
             a {
-                transition: width 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                transition: width $duration cubic-bezier(0.250, 0.460, 0.450, 0.940);
                 display: block;
                 height: 2.5rem;
                 overflow: visible;
                 position: relative;
                 h5, h6 {
-                    transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), color 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                    transition: transform $duration cubic-bezier(0.250, 0.460, 0.450, 0.940), color $duration cubic-bezier(0.250, 0.460, 0.450, 0.940);
                 }
                 h5 {
                     font-variant: small-caps;
@@ -368,16 +390,16 @@ ul.proximal-nav {
                     color: #fff;
                     text-decoration: none;
                     .icon-caption { 
-                        transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), fill 0.2s $quad-out;
+                        transition: transform $duration cubic-bezier(0.250, 0.460, 0.450, 0.940), fill $duration $quad-out;
                         transform: translateX(0);
                         opacity: 1;
                             svg path {
-                                transition: fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                                transition: fill $duration cubic-bezier(0.250, 0.460, 0.450, 0.940);
                                 fill: #fff !important;
                             }
                     }
                     h5, h6 {
-                        transition: transform 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940), color 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                        transition: transform $duration cubic-bezier(0.250, 0.460, 0.450, 0.940), color $duration cubic-bezier(0.250, 0.460, 0.450, 0.940);
                         color: #fff;
                     }
                 }
@@ -385,11 +407,11 @@ ul.proximal-nav {
             }
         }
         .icon-caption {
-            transition: transform 0.2s $quad-out;
+            transition: transform $duration $quad-out;
             opacity: 0;
             position: absolute;
             svg path {
-                transition: fill 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                transition: fill $duration cubic-bezier(0.250, 0.460, 0.450, 0.940);
                 fill: rgb(0, 122, 255) !important;
             }
         }
